@@ -1,24 +1,25 @@
 package day01;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class ClassNotebook {
 
     private Map<Student, List<Integer>> notebook = new TreeMap<>();
 
+
     public void addStudent(Student student) {
         notebook.put(student, new ArrayList<>());
     }
 
-    public Student addMark(int id, int mark) {
-        for (Student item : notebook.keySet()) {
-            if (item.getId() == id) {
-                return item;
+    public void addMark(int id, int mark){
+        for(Map.Entry<Student,List<Integer>> actual : notebook.entrySet()){
+            if(actual.getKey().getId()==id){
+                actual.getValue().add(mark);
             }
         }
-        throw new IllegalArgumentException("Ivalid ID");
+    }
+
+    public Map<Student, List<Integer>> getNotebook() {
+        return notebook;
     }
 }

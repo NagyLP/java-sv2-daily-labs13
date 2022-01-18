@@ -2,7 +2,7 @@ package day01;
 
 import java.util.Objects;
 
-public class Student {
+public class Student implements Comparable<Student>{
 
     private int id;
     private String name;
